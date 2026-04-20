@@ -24,29 +24,61 @@
       <div class="orb orb--3"></div>
     </div>
 
-    <header class="site-header">
-      <div class="container">
-        <div class="brand">
-          <div class="brand__logo-wrap">
-            <img class="brand__logo" src="assets/lsy-logo.png" alt="Lourdes Shrine Youth logo" />
-          </div>
-          <div class="brand__text">
-            <h1 class="brand__title">Lourdes Shrine Youth</h1>
-            <p class="brand__subtitle">Summer Slam &amp; Grace Gala 2026</p>
-            <p class="brand__tagline">Hearts on fire, feet on the move</p>
-          </div>
+    <!-- Landing / Intro (first screen) -->
+    <section id="landing" class="landing" aria-label="Intro">
+      <!-- Optional “church doorway” panels -->
+      <div class="landing__doors" aria-hidden="true">
+        <div class="door door--left"></div>
+        <div class="door door--right"></div>
+        <div class="arch"></div>
+        <div class="rays">
+          <span class="ray ray--1"></span>
+          <span class="ray ray--2"></span>
+          <span class="ray ray--3"></span>
         </div>
-
-        <div class="header-cta">
-          <div class="pill">
-            <span class="pill__dot" aria-hidden="true"></span>
-            <span class="pill__text">Tap an event card to view rules &amp; register</span>
-          </div>
+        <div class="dust">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span>
         </div>
       </div>
-    </header>
 
-    <main class="container">
+      <div class="landing__content">
+        <div class="landing__badge">
+          <img class="landing__logo" src="assets/lsy-logo.png" alt="" aria-hidden="true" />
+        </div>
+        <p class="landing__title">Lourdes Shrine Youth</p>
+        <p class="landing__subtitle">Presents</p>
+        <h2 class="landing__heading">Summer Slam &amp; Grace Gala 2026</h2>
+
+        <button id="exploreBtn" class="landing__btn" type="button">Click Here to Explore</button>
+      </div>
+    </section>
+
+    <!-- Main website content (hidden until Explore) -->
+    <div id="mainContent" class="main-content" hidden>
+      <header class="site-header">
+        <div class="container">
+          <div class="brand">
+            <div class="brand__logo-wrap">
+              <img class="brand__logo" src="assets/lsy-logo.png" alt="Lourdes Shrine Youth logo" />
+            </div>
+            <div class="brand__text">
+              <h1 class="brand__title">Lourdes Shrine Youth</h1>
+              <p class="brand__subtitle">Summer Slam &amp; Grace Gala 2026</p>
+              <p class="brand__tagline">Hearts on fire, feet on the move</p>
+            </div>
+          </div>
+
+          <div class="header-cta">
+            <div class="pill">
+              <span class="pill__dot" aria-hidden="true"></span>
+              <span class="pill__text">Tap an event card to view rules &amp; register</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
       <!-- Interactive controls -->
       <section class="controls" aria-label="Event filters">
         <div class="controls__left">
@@ -111,7 +143,8 @@
           © <span id="year"></span> Lourdes Shrine Youth. Built for Summer Slam &amp; Grace Gala 2026.
         </p>
       </footer>
-    </main>
+      </main>
+    </div>
 
     <!-- Modal -->
     <div id="modalOverlay" class="modal-overlay" aria-hidden="true">
