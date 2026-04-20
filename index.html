@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Lourdes Shrine Youth — Summer Slam & Grace Gala 2026 event registrations." />
+    <title>Lourdes Shrine Youth — Summer Slam & Grace Gala 2026</title>
+
+    <!-- Fonts (no framework) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Background accents -->
+    <div class="bg-orbs" aria-hidden="true">
+      <div class="orb orb--1"></div>
+      <div class="orb orb--2"></div>
+      <div class="orb orb--3"></div>
+    </div>
+
+    <!-- Landing / Intro (first screen) -->
+    <section id="landing" class="landing" aria-label="Intro">
+      <!-- Optional “church doorway” panels -->
+      <div class="landing__doors" aria-hidden="true">
+        <div class="door door--left"></div>
+        <div class="door door--right"></div>
+        <div class="arch"></div>
+        <div class="rays">
+          <span class="ray ray--1"></span>
+          <span class="ray ray--2"></span>
+          <span class="ray ray--3"></span>
+        </div>
+        <div class="dust">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="landing__content">
+        <div class="landing__badge">
+          <img class="landing__logo" src="assets/lsy-logo.png" alt="" aria-hidden="true" />
+        </div>
+        <p class="landing__title">Lourdes Shrine Youth</p>
+        <p class="landing__subtitle">Presents</p>
+        <h2 class="landing__heading">Summer Slam &amp; Grace Gala 2026</h2>
+
+        <button id="exploreBtn" class="landing__btn" type="button">Click Here to Explore</button>
+      </div>
+    </section>
+
+    <!-- Main website content (hidden until Explore) -->
+    <div id="mainContent" class="main-content" hidden>
+      <header class="site-header">
+        <div class="container">
+          <div class="brand">
+            <div class="brand__logo-wrap">
+              <img class="brand__logo" src="assets/lsy-logo.png" alt="Lourdes Shrine Youth logo" />
+            </div>
+            <div class="brand__text">
+              <h1 class="brand__title">Lourdes Shrine Youth</h1>
+              <p class="brand__subtitle">Summer Slam &amp; Grace Gala 2026</p>
+              <p class="brand__tagline">Hearts on fire, feet on the move</p>
+            </div>
+          </div>
+
+          <div class="header-cta">
+            <div class="pill">
+              <span class="pill__dot" aria-hidden="true"></span>
+              <span class="pill__text">Tap an event card to view rules &amp; register</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+      <!-- Interactive controls -->
+      <section class="controls" aria-label="Event filters">
+        <div class="controls__left">
+          <label class="search" for="searchInput">
+            <span class="search__icon" aria-hidden="true">⌕</span>
+            <input
+              id="searchInput"
+              class="search__input"
+              type="search"
+              placeholder="Search events (e.g., Relay, Dance, Chess)…"
+              autocomplete="off"
+            />
+          </label>
+
+          <div class="chips" role="tablist" aria-label="Category filter">
+            <button class="chip is-active" type="button" data-filter="all" role="tab" aria-selected="true">
+              All
+            </button>
+            <button class="chip" type="button" data-filter="sports" role="tab" aria-selected="false">Sports</button>
+            <button class="chip" type="button" data-filter="cultural" role="tab" aria-selected="false">
+              Cultural
+            </button>
+          </div>
+        </div>
+
+        <div class="controls__right">
+          <div class="count" aria-live="polite">
+            Showing <strong id="visibleCount">0</strong> events
+          </div>
+          <div class="mini" id="countdown" aria-label="Countdown">Loading…</div>
+        </div>
+      </section>
+
+      <!-- Section: Summer Slam -->
+      <section class="section" aria-labelledby="sports-title">
+        <div class="section__head">
+          <div>
+            <h2 id="sports-title" class="section__title">Summer Slam (Sports Events)</h2>
+            <p class="section__hint">Athletics, team games, and indoor events.</p>
+          </div>
+          <div class="section__tag">Sports</div>
+        </div>
+
+        <div id="sports-grid" class="grid" role="list" aria-label="Summer Slam events"></div>
+      </section>
+
+      <!-- Section: Grace Gala -->
+      <section class="section" aria-labelledby="cultural-title">
+        <div class="section__head">
+          <div>
+            <h2 id="cultural-title" class="section__title">Grace Gala (Cultural Events)</h2>
+            <p class="section__hint">Performing arts and creative competitions.</p>
+          </div>
+          <div class="section__tag section__tag--alt">Cultural</div>
+        </div>
+
+        <div id="cultural-grid" class="grid" role="list" aria-label="Grace Gala events"></div>
+      </section>
+
+      <footer class="footer">
+        <p class="footer__text">
+          © <span id="year"></span> Lourdes Shrine Youth. Built for Summer Slam &amp; Grace Gala 2026.
+        </p>
+      </footer>
+      </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="modalOverlay" class="modal-overlay" aria-hidden="true">
+      <div
+        id="modal"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalBody"
+        tabindex="-1"
+      >
+        <button id="modalClose" class="modal__close" type="button" aria-label="Close">
+          <span aria-hidden="true">✕</span>
+        </button>
+
+        <div class="modal__header">
+          <div class="modal__icon" id="modalIcon" aria-hidden="true">🎯</div>
+          <div class="modal__heading">
+            <h3 class="modal__title" id="modalTitle">Event Title</h3>
+            <p class="modal__meta" id="modalMeta">Summer Slam • Rules &amp; Instructions</p>
+          </div>
+        </div>
+
+        <div id="modalBody" class="modal__body">
+          <div class="info-block">
+            <h4 class="info-block__title">Rules &amp; Regulations</h4>
+            <ul id="modalRules" class="bullets"></ul>
+          </div>
+
+          <div class="info-block">
+            <h4 class="info-block__title">General Instructions</h4>
+            <ul id="modalInstructions" class="bullets bullets--muted"></ul>
+          </div>
+        </div>
+
+        <!-- Fixed inside modal (bottom-left) -->
+        <a
+          id="registerBtn"
+          class="register-btn"
+          href="https://docs.google.com/forms/d/e/1FAIpQLScneLN2uMTTeSghGFLb9hEyUiGOfLbb0O1FRbbVXJeOlunH1Q/viewform?usp=publish-editor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Register Now
+        </a>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
+
